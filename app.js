@@ -65,12 +65,11 @@ return inquirer.prompt([
         name: 'credits',
         message: 'List your collaborators, if any, with links to their GitHub profiles.',
     },
-    
     {
         type: 'list',
         name: 'license',
         message: 'Does this project have a license?',
-        choices: [ 'Apache License 2.0','MIT License','ISC license','GNU LGPLv3', 'None' ]
+        choices: [ 'Apache','MIT','GNU', 'ISC','Academic','Open' ],
     },
     {
         type: 'input',
@@ -81,6 +80,45 @@ return inquirer.prompt([
         type: 'input',
         name: 'tests',
         message: 'Write tests for your application if any, then provide examples on how to run them here.',
+    },
+    {
+        type: 'input',
+        name: 'github',
+        message: 'Please enter your github username.',
+        validate: installInstruct => {
+            if(installInstruct) {
+                return true;
+            } else {
+                console.log('You must provide your github username');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'please enter an email address',
+        validate: installInstruct => {
+            if(installInstruct) {
+                return true;
+            } else {
+                console.log('You must provide a email address!');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'contact',
+        message: 'please explain with instructions on how somone can reach you that has additional questions about your application',
+        validate: installInstruct => {
+            if(installInstruct) {
+                return true;
+            } else {
+                console.log('You must provide a instructions on how to contact you!');
+                return false;
+            }
+        }
     }
 ]);
 };
@@ -118,9 +156,3 @@ questions()
 
 
 
-/*
-// TODO: Create a function to initialize app
-function init() {}
-// Function call to initialize app
-init();
-*/
