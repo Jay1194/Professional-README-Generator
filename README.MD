@@ -16,7 +16,7 @@
 - npm i inquirer@8.2.4
 
 ## Usage
-none
+https://drive.google.com/file/d/1H5FXMI3gXlqx74iYi-LKsaZIdYxCL2wo/view
 
 ## Credits
 - https://github.com/Jay1194
