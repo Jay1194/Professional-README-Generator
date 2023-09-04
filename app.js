@@ -1,9 +1,10 @@
 // Include packages needed for this application
 const inquirer = require('inquirer');
+const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 
 // add a parameter that will store the answers
-const questions = data => {
+const questions = readMeData => {
     
 // asking the user for their information with Inquirer prompts
 return inquirer.prompt([
@@ -83,18 +84,43 @@ return inquirer.prompt([
     }
 ]);
 };
-// answers data in readMeData
+
+//Create a function to write README file
+const writeToFile = (data) => {
+    return new Promise ((resolve, reject) => {
+        fs.writeFile('./dist/README.MD', data, err => {
+            if (err) {
+                reject(err);
+                return;
+            }
+            resolve({
+                ok:true,
+                message: 'readME file Created!'
+            });
+        });
+    });
+  };
+  
+// answers data in data
 questions()
+.then(readMeData => {
+    return generateMarkdown(readMeData);
+})
 .then(data => {
-    return generateMarkdown(data)
+    return writeToFile(data);
+})
+.then(response => {
+    console.log(response);
+  })
+.catch(err => {
+    console.log(err);
 });
 
 
-//TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
 
+/*
 // TODO: Create a function to initialize app
 function init() {}
-
 // Function call to initialize app
 init();
+*/
