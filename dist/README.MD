@@ -12,8 +12,8 @@
 - [License](#License)
 
 ## Installation
-- npm init
-- npm i inquirer@8.2.4
+<sub>npm init</sub>
+<sub>npm i inquirer@8.2.4</sub>
 
 ## Usage
 none
