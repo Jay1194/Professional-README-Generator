@@ -12,11 +12,11 @@
 - [License](#License)
 
 ## Installation
-- 1. npm init 
-- 2. npm i inquirer@8.2.4
+- npm init
+- npm i inquirer@8.2.4
 
 ## Usage
-- hold
+none
 
 ## Credits
 - https://github.com/Jay1194
